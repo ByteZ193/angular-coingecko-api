@@ -25,9 +25,14 @@ export class AppComponent implements OnInit {
   constructor(private http: HttpClient) {}
 
   searchCoin() {
-    this.filteredCoins = this.coins.filter((coin) =>
-        coin.name.toLocaleLowerCase().includes(this.searchText.toLocaleLowerCase()) ||
-        coin.symbol.toLocaleLowerCase().includes(this.searchText.toLocaleLowerCase())
+    this.filteredCoins = this.coins.filter(
+      (coin) =>
+        coin.name
+          .toLocaleLowerCase()
+          .includes(this.searchText.toLocaleLowerCase()) ||
+        coin.symbol
+          .toLocaleLowerCase()
+          .includes(this.searchText.toLocaleLowerCase())
     );
   }
 
@@ -40,7 +45,7 @@ export class AppComponent implements OnInit {
         (res) => {
           console.log(res);
           this.coins = res;
-          this.filteredCoins = res; 
+          this.filteredCoins = res;
         },
         (err) => {
           console.log(err);
